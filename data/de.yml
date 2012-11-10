@@ -1,0 +1,71 @@
+# German school holiday definitions
+#
+--- 
+school:
+  2012:
+    Winterferien:
+    - region: de_by
+      from: 2012-2-20
+      to: 2012-2-24
+    - region: de_be
+      from: 2012-1-30
+      to: 2012-2-4
+    Osterferien:
+    - region: de_he
+      from: 2012-4-2
+      to: 2012-4-14
+    - region: de_bw
+      from: 2012-4-2
+      to: 2012-4-13
+    - region: de_by
+      from: 2012-4-2
+      to: 2012-4-14
+    - region: de_be
+      from: 2012-4-2
+      to: 2012-4-14
+    Pfingstferien:
+    - region: de_bw
+      from: 2012-5-29
+      to: 2012-6-9
+    - region: de_by
+      from: 2012-5-29
+      to: 2012-6-9
+    - region: de_be
+      from: 2012-5-18
+      to: 2012-5-18      
+    Sommerferien:
+    - region: de_he
+      from: 2012-7-2
+      to: 2012-8-10
+    - region: de_bw
+      from: 2012-7-26
+      to: 2012-9-8
+    - region: de_by
+      from: 2012-8-1
+      to: 2012-9-12
+    - region: de_be
+      from: 2012-6-21
+      to: 2012-8-3      
+    Herbstferien:
+    - region: de_he
+      from: 2012-10-15
+      to: 2012-10-27
+    - region: de_by
+      from: 2012-10-29
+      to: 2012-11-3      
+    - region: de_be
+      from: 2012-10-1
+      to: 2012-10-13            
+    Weihnachtsferien:
+    - region: de_he
+      from: 2012-12-24
+      to: 2013-1-12
+    - region: de_bw
+      from: 2012-12-24
+      to: 2013-1-5      
+    - region: de_by
+      from: 2012-12-24
+      to: 2013-1-5      
+    - region: de_be
+      from: 2012-12-24
+      to: 2013-1-4            
