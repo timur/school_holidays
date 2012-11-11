@@ -69,7 +69,7 @@ module SchoolHolidays
   end
   
   def self.included(base)
-    f = File.expand_path(File.dirname(__FILE__) + "/../data/de_parse.yml")   
+    f = File.expand_path(File.dirname(__FILE__) + "/../data/de.yml")   
     german = YAML.load_file(f)
     parse_data german
   end
