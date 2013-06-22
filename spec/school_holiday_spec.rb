@@ -25,6 +25,20 @@ describe SchoolHolidays do
     herbstferien.name.should == "Herbstferien"
   end
 
+  it 'should get Hessen 2012' do
+    year_2012 = SchoolHolidays.by_year(2012, :de_he)
+    year_2012.class.should == Array
+    year_2012.size.should > 0
+  end
+
+  it 'check date Region year' do
+    back = SchoolHolidays.on_holidays?(Date.parse('2013-7-10'), :de_he, 2013)
+    back.should == true
+    
+    back = SchoolHolidays.on_holidays?(Date.parse('2013-6-22'), :de_he, 2013)
+    back.should == false
+  end
+
   it 'should get Sommerferien for BW 2012' do
     herbstferien = SchoolHolidays.by_name("Sommerferien", 2012, :de_bw)
     herbstferien.class.should == SchoolHoliday

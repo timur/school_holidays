@@ -30,7 +30,7 @@ class SchoolHoliday
     if @region == region.to_sym && @year == year && @name == name
       return self
     end    
-  end      
+  end
   
   # checks if a given date is in the holiday
   def cover?(date, region)

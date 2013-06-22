@@ -62,12 +62,33 @@ module SchoolHolidays
     @@data.find { |school_holiday| school_holiday.by_name(name, year, region) }  
   end
   
+  # Get a school holiday
+  #
+  # <tt>year</tt>::
+  # <tt>region</tt>::
+  def self.by_year(year, region)
+    @@data.select do |school_holiday| 
+      school_holiday.year == year && school_holiday.region == region
+    end
+  end  
+  
   def self.on?(date, region)
     back = false
     result = @@data.find { |school_holiday| school_holiday.cover?(date, region) }
     back = true if result
     back
   end
+  
+  def self.on_holidays?(date, region, year)
+    back = false
+    school_holidays = self.by_year(year, region)
+    school_holidays.each do |school_holiday|
+      break if back
+      result = school_holiday.cover?(date, region)
+      back = true if result
+    end
+    back
+  end  
   
   def self.included(base)
     f = File.expand_path(File.dirname(__FILE__) + "/../data/de.yml")   
