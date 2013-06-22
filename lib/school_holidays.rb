@@ -1,6 +1,7 @@
 # encoding: utf-8
 require 'date'
 require_relative "school_holidays/school_holiday"
+require 'benchmark'
 
 module SchoolHolidays
   
@@ -74,24 +75,28 @@ module SchoolHolidays
     parse_data german
   end
   
-  def self.parse_data(data) 
-    data['school'].each do |year, holiday|
-      holiday.each do |name, region|
-        @@school_holiday_types << name unless @@school_holiday_types.include? name        
-        region.each do |data|       
-          r = data['region'].to_sym
-          @@regions << r unless @@regions.include? r
-          @@data << SchoolHoliday.new(
-                      :year => year, 
-                      :name => name, 
-                      :region => data['region'].to_sym, 
-                      :from => data['from'], 
-                      :to => data['to']
-                    )
-                                                       
-        end          
-      end
-    end                      
+  def self.parse_data(data)
+    Benchmark.bm(10) do |x| 
+      x.report('PARSE') do
+        data['school'].each do |year, holiday|
+          holiday.each do |name, region|
+            @@school_holiday_types << name unless @@school_holiday_types.include? name        
+            region.each do |data|       
+              r = data['region'].to_sym
+              @@regions << r unless @@regions.include? r
+              @@data << SchoolHoliday.new(
+                          :year => year, 
+                          :name => name, 
+                          :region => data['region'].to_sym, 
+                          :from => data['from'], 
+                          :to => data['to']
+                        )
+                                                           
+            end          
+          end
+        end
+      end                      
+    end
   end  
 end  
 
